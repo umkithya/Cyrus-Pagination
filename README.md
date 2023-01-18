@@ -1,39 +1,54 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Cyrus Pagination
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+---
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+A library for easily displaying paginated data, created by Um Kithya.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+`InfiniteList` comes in handy when building features like activity feeds, news feeds, or anywhere else where you need to lazily fetch and render content for users to consume.
 
-## Features
+## Example
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+<img src="https://raw.githubusercontent.com/umkithya/Cyrus-Pagination/master/demo/list-pagination.gif" height="400"/>
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+A basic implementation requires four parameters:
+
+- An `onRefresh` that is refresh function call when pull to refresh like refresh indicator.
+- A `widget` that is item child widget.
+- A `fetchData` that is an function to fetch api.
+- An `itemList` that is a list of item.
+- A `loading` that is variable for loading state.
+- A `page` that is variable for page number state.
+- An `hasMoreData` that is variable its true when data has more.
+- An `end` that is variable its true when page equals total page.
+
+## Example
 
 ```dart
-const like = 'sample';
+CyrusPagination<PassagerModel>(
+        onRefresh: () async {
+          setState(() {
+            page = 1;
+            end = false;
+          });
+          await fetchApi();
+        },
+        loading: loading,
+        itemList: passagerList,
+        page: page,
+        end: end,
+        fetchData: () => fetchApi(),
+        widget: (data, index) => Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: CustomCard(
+            description: data.name,
+            title: "$index",
+          ),
+        ),
+        hasMoreData: isMoreData,
+      ),
 ```
+## Copyright & License
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+This open source project authorized by UM KITHYA , and the license is MIT.

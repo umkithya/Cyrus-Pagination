@@ -94,13 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: CyrusPagination<PassagerModel>(
-        // isGridView: true,
-        // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //   crossAxisSpacing: 1,
-        //   mainAxisSpacing: 10,
-        //   crossAxisCount: 3,
-        //   childAspectRatio: 3 / 4.5,
-        // ),
+        isGridView: true,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: 1,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
+          childAspectRatio: 3 / 4.5,
+        ),
         onRefresh: () async {
           setState(() {
             page = 1;
