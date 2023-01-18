@@ -1,6 +1,6 @@
 name: cyrus_pagination
 description: A Cyrus Pagination is an infinite list scroll.
-version: 0.0.1
+version: 0.0.3
 homepage: https://github.com/umkithya/Cyrus-Pagination
 
 environment:
