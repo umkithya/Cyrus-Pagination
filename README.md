@@ -4,7 +4,7 @@
 
 A library for easily displaying paginated data, created by Um Kithya.
 
-`InfiniteList` comes in handy when building features like activity feeds, news feeds, or anywhere else where you need to lazily fetch and render content for users to consume.
+`Cyrus Pagination` comes in handy when building features like activity feeds, news feeds, or anywhere else where you need to lazily fetch and render content for users to consume.
 
 ## Example
 
